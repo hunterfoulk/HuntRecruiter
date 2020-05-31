@@ -1,0 +1,105 @@
+.home-main {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(190deg, #f0f5f3 0, rgba(255, 255, 255, 0.5) 100%);
+  border-bottom: 1px solid rgb(192, 192, 192);
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h1 {
+      font-size: 40px;
+    }
+    span {
+      font-size: 20px;
+      color: rgb(80, 80, 80);
+    }
+  }
+  .input-search {
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
+    align-items: center;
+    .input-one {
+      margin: 5px;
+      font-size: 20px;
+      background-color: rgb(177, 137, 137);
+      padding-left: 50px;
+      height: 50px;
+      width: 200px;
+      background: #fff url("../images/search.png");
+      background-repeat: no-repeat;
+      background-size: 24px;
+      background-position-y: center;
+      background-position: 10px;
+      line-height: 20px;
+      border: 1px solid rgb(102, 102, 102);
+      outline-color: rgb(110, 194, 110);
+    }
+    .input-two {
+      margin: 5px;
+      font-size: 20px;
+      background-color: rgb(177, 137, 137);
+      padding-left: 50px;
+      height: 50px;
+      width: 200px;
+      background: #fff url("../images/locationimg.png");
+      background-repeat: no-repeat;
+      background-size: 24px;
+      background-position-y: center;
+      background-position: 10px;
+      line-height: 20px;
+      outline-color: rgb(110, 194, 110);
+      border: 1px solid rgb(102, 102, 102);
+    }
+    button {
+      //   padding: 5px 40px;
+      color: white;
+      outline: none;
+      width: 150px;
+      height: 50px;
+      font-size: 18px;
+      background-color: rgb(110, 194, 110);
+      border: 1px solid rgb(110, 194, 110);
+      border-radius: 30px;
+    }
+    button:hover {
+      cursor: pointer;
+      background-color: rgb(97, 182, 97);
+    }
+  }
+  .filters {
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    align-self: center;
+    align-items: center;
+    // background-color: rgb(187, 109, 109);
+    height: 100px;
+    width: 50%;
+    margin-top: 30px;
+    button {
+      color: black;
+      font-weight: bold;
+      margin: 5px;
+      outline: none;
+      padding: 12px 20px;
+      font-size: 13px;
+      background-color: white;
+      border: 1px solid rgb(167, 167, 167);
+      border-radius: 30px;
+
+      .search {
+        font-size: 18px;
+        color: rgb(110, 194, 110);
+        position: relative;
+        margin-right: 1px;
+        float: left;
+      }
+    }
+    button:hover {
+      background-color: rgba(236, 236, 236, 0.39);
+      cursor: pointer;
+    }
+  }
+}

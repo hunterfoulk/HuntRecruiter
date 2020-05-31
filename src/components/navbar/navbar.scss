@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Crete+Round&display=swap");
+
+.navbar {
+  display: flex;
+  position: sticky;
+  box-shadow: -1px 4px 10px 0px rgba(53, 53, 53, 0.2);
+  width: 100%;
+  background-color: white;
+  height: 50px;
+  //   border-bottom: 1px solid black;
+  .nav-left {
+    display: flex;
+    width: 30%;
+    font-size: 28px;
+    align-items: center;
+    justify-content: center;
+    span {
+      position: relative;
+      font-family: "Crete Round", serif;
+      font-weight: 200;
+      text-decoration: none;
+    }
+    .globe {
+      font-size: 28px;
+      color: rgb(110, 194, 110);
+    }
+    .home-button {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: black;
+    }
+  }
+  .nav-right {
+    display: flex;
+    width: 70%;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    button {
+      background-color: transparent;
+      cursor: pointer;
+      outline: none;
+      color: rgb(68, 173, 68);
+      font-weight: bold;
+      font-size: 17px;
+      border: 1px solid rgb(187, 187, 187);
+      border-radius: 20px;
+      padding: 7px 18px;
+      margin-left: 400px;
+    }
+
+    button:hover {
+      background-color: rgb(241, 241, 241);
+      transition: 0.5s;
+    }
+  }
+}
