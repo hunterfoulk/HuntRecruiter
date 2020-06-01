@@ -1,0 +1,80 @@
+.listings-main {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  background: linear-gradient(180deg, #f0f5f3 0, rgba(255, 255, 255, 0.5) 100%);
+  //   background-color: rgb(177, 102, 102)
+  overflow-y: scroll;
+
+  .card-container {
+    display: flex;
+    margin-left: 50px;
+    width: 70%;
+    flex-direction: column;
+    // background-color: rgb(124, 228, 124);
+
+    .card {
+      display: flex;
+      margin: 10px;
+      flex-direction: column;
+      padding: 5px 5px;
+      background-color: white;
+      //   background-color: yellow;
+      width: 500px;
+      max-height: 250px;
+      border: 1px solid rgb(212, 212, 212);
+      border-radius: 10px;
+      .location {
+        display: flex;
+        // background-color: green;
+        align-items: center;
+
+        .building {
+          height: 14px;
+          position: relative;
+          bottom: 4.5px;
+          color: rgb(66, 66, 66);
+        }
+        .location-img {
+          height: 14px;
+          width: 14px;
+          position: relative;
+          bottom: 5px;
+          margin-right: 5px;
+          margin-left: 1px;
+        }
+        p {
+          color: rgb(66, 66, 66);
+          font-size: 18px;
+          margin-top: 5px;
+        }
+      }
+      .title {
+        font-weight: bold;
+        margin: 0px;
+        color: #0e75e2;
+        font-size: 1.2em;
+        font-weight: 400;
+        // cursor: pointer;
+      }
+      .title:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      .description {
+        white-space: normal;
+        // white-space: nowrap;
+        -webkit-order: 1;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: flex;
+        max-height: 200px;
+        // background-color: rgb(142, 142, 235);
+      }
+    }
+  }
+  .modal-container {
+    display: flex;
+    // background-color: rgb(157, 177, 157);
+  }
+}

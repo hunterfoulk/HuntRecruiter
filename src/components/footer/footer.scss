@@ -1,0 +1,18 @@
+.footer-main {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  //   background-color: rgb(172, 94, 94);
+  border-top: 1px solid rgb(209, 209, 209);
+  .footer-container {
+    display: flex;
+    p {
+      padding: 8px;
+      color: rgb(107, 107, 107);
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}

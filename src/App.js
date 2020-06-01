@@ -5,10 +5,11 @@ import Navbar from "./components/navbar/navbar";
 import Homepage from "./components/homepage/homepage";
 import PostJob from "./components/postjob/postjob";
 import Listings from "./components/listings/listings";
-import SectionTwo from "./components/sectiontwo/sectionTwo";
+import SectionTwo from "./components/sections/sectionTwo";
+import SectionThree from "./components/sections/sectionThree";
+import Footer from "./components/footer/footer";
 import axios from "axios";
 import { Link, useHistory, Redirect } from "react-router-dom";
-import { withRouter } from "react-router";
 
 function App() {
   const [jobs, setJobs] = useState([]);
@@ -52,20 +53,17 @@ function App() {
     getJobs();
   };
 
-  const reRoute = () => {
-    history.push("/listings");
-  };
-
   const switchFunction = (type) => {
+    let types = ["Developer", "Software"];
+
     switch (type) {
       case "healthcare":
         setJobs((prevJobs) =>
-          prevJobs.filter((item) => item.title.includes("Healthcare"))
+          prevJobs.filter((item) => item.title.indexOf(types))
         );
 
         break;
       case "warehouse":
-        console.log("warehouse");
         setJobs((prevJobs) =>
           prevJobs.filter((item) => item.title.includes("Warehouse"))
         );
@@ -73,13 +71,17 @@ function App() {
         break;
       case "retail":
         setJobs((prevJobs) =>
-          prevJobs.filter((item) => item.title.includes("Retail"))
+          prevJobs.filter((item) => item.title.match("Retail"))
         );
 
         break;
       case "software":
         setJobs((prevJobs) =>
-          prevJobs.filter((item) => item.title.includes("Software"))
+          prevJobs.filter(
+            (item) =>
+              item.title.includes("Software") ||
+              item.title.includes("Developer")
+          )
         );
 
         break;
@@ -91,47 +93,51 @@ function App() {
 
   return (
     <Router>
-      {/* HOME ROUTE */}
-      <Route
-        exact
-        path="/"
-        render={() => (
-          <>
-            <Navbar setJobs={setJobs} reFetch={reFetch} />
-            <Homepage
-              handleSearchValue={handleSearchValue}
-              getJobs={getJobs}
-              setJobs={setJobs}
-              switchFunction={switchFunction}
-            />
-            <SectionTwo />
-          </>
-        )}
-      ></Route>
+      <div className="app">
+        {/* HOME ROUTE */}
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <>
+              <Navbar setJobs={setJobs} reFetch={reFetch} />
+              <Homepage
+                handleSearchValue={handleSearchValue}
+                getJobs={getJobs}
+                setJobs={setJobs}
+                switchFunction={switchFunction}
+              />
+              <SectionTwo />
+              <SectionThree />
+            </>
+          )}
+        ></Route>
 
-      {/* POST JOB ROUTE */}
-      <Route
-        exact
-        path="/postjob"
-        render={() => (
-          <>
-            <Navbar />
-            <PostJob />
-          </>
-        )}
-      ></Route>
+        {/* POST JOB ROUTE */}
+        <Route
+          exact
+          path="/postjob"
+          render={() => (
+            <>
+              <Navbar />
+              <PostJob />
+            </>
+          )}
+        ></Route>
 
-      {/* JOB LISTINGS ROUTE */}
-      <Route
-        exact
-        path="/listings"
-        render={() => (
-          <>
-            <Navbar />
-            <Listings getJobs={getJobs} setJobs={setJobs} jobs={jobs} />
-          </>
-        )}
-      ></Route>
+        {/* JOB LISTINGS ROUTE */}
+        <Route
+          exact
+          path="/listings"
+          render={() => (
+            <>
+              <Navbar />
+              <Listings getJobs={getJobs} setJobs={setJobs} jobs={jobs} />
+            </>
+          )}
+        ></Route>
+        <Footer />
+      </div>
     </Router>
   );
 }

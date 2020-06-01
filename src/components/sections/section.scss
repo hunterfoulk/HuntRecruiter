@@ -2,16 +2,16 @@
   display: flex;
   background-color: white;
   // background-color: rgb(199, 138, 138);
-  border-bottom: 1px solid rgb(192, 192, 192);
-  margin-top: 10px;
-
+  // border-bottom: 1px solid rgb(209, 209, 209);
+  // margin-top: 10px;
+  height: 100%;
   .section-two-left {
     display: flex;
     justify-content: center;
     padding: 10px;
     // background-color: rgb(199, 104, 104);
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
     img {
       width: 150px;
       height: 80px;
@@ -25,5 +25,20 @@
     span {
       color: grey;
     }
+  }
+}
+.section-three-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 300px;
+  padding-bottom: 40px;
+  padding-top: 20px;
+  background-color: #f0f5f3;
+  margin-bottom: 50px;
+  .section-three-container {
+    text-align: center;
+    width: 40%;
   }
 }

@@ -11,10 +11,6 @@ export default function Homepage({
   getJobs,
   switchFunction,
 }) {
-  const [city, setCity] = useState("");
-  const [title, setTitle] = useState("");
-  const history = useHistory();
-
   return (
     <div className="home-main">
       <div className="header">
