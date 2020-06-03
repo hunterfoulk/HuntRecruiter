@@ -25,6 +25,7 @@ export default function PostJob() {
       .catch((error) =>
         console.error("new job post was not succesfull:", error)
       );
+
     setCompany("");
     setTitle("");
     setDescription("");

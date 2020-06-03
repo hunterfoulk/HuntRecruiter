@@ -1,10 +1,12 @@
 .footer-main {
   display: flex;
   width: 100%;
+  height: 100px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   //   background-color: rgb(172, 94, 94);
+  background-color: white;
   border-top: 1px solid rgb(209, 209, 209);
   .footer-container {
     display: flex;

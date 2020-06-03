@@ -8,20 +8,33 @@ import Listings from "./components/listings/listings";
 import SectionTwo from "./components/sections/sectionTwo";
 import SectionThree from "./components/sections/sectionThree";
 import Footer from "./components/footer/footer";
+import Apply from "./components/apply/apply";
+import JobModal from "./components/modal/jobModal";
 import axios from "axios";
 import { Link, useHistory, Redirect } from "react-router-dom";
 
 function App() {
   const [jobs, setJobs] = useState([]);
   const history = useHistory();
+  const [content, setContent] = useState([]);
+  const [jobApps, setJobApps] = useState([]);
+
+  const [blank, setBlank]=useState({
+    content=[],
+    filteredContent=[],
+    selectedJob={}
+  });
 
   const getJobs = async () => {
+
     try {
       const response = await fetch("http://localhost:5000/recruiter/jobs");
       const jsonData = await response.json();
 
       setJobs(jsonData);
+
       console.log("jobs", jsonData);
+
     } catch (error) {
       console.error(error.message);
     }
@@ -54,12 +67,10 @@ function App() {
   };
 
   const switchFunction = (type) => {
-    let types = ["Developer", "Software"];
-
     switch (type) {
       case "healthcare":
         setJobs((prevJobs) =>
-          prevJobs.filter((item) => item.title.indexOf(types))
+          prevJobs.filter((item) => item.title.indexOf("types"))
         );
 
         break;
@@ -71,7 +82,7 @@ function App() {
         break;
       case "retail":
         setJobs((prevJobs) =>
-          prevJobs.filter((item) => item.title.match("Retail"))
+          prevJobs.filter((item) => item.title.includes("Retail"))
         );
 
         break;
@@ -95,12 +106,12 @@ function App() {
     <Router>
       <div className="app">
         {/* HOME ROUTE */}
+        <Navbar setJobs={setJobs} reFetch={reFetch} />
         <Route
           exact
           path="/"
           render={() => (
             <>
-              <Navbar setJobs={setJobs} reFetch={reFetch} />
               <Homepage
                 handleSearchValue={handleSearchValue}
                 getJobs={getJobs}
@@ -119,7 +130,6 @@ function App() {
           path="/postjob"
           render={() => (
             <>
-              <Navbar />
               <PostJob />
             </>
           )}
@@ -131,11 +141,26 @@ function App() {
           path="/listings"
           render={() => (
             <>
-              <Navbar />
-              <Listings getJobs={getJobs} setJobs={setJobs} jobs={jobs} />
+              <Listings
+                getJobs={getJobs}
+                setJobs={setJobs}
+                jobs={jobs}
+                setContent={setContent}
+                content={content}
+                setJobApps={setJobApps}
+              />
+              {/* <JobModal setJobsApps={setJobsApps} jobApps={jobApps} /> */}
             </>
           )}
         ></Route>
+
+        {/* APPLY ROUTE */}
+        <Route
+          exact
+          path="/apply"
+          render={() => <Apply setJobApps={setJobApps} jobApps={jobApps} />}
+        ></Route>
+
         <Footer />
       </div>
     </Router>

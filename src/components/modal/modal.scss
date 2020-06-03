@@ -5,6 +5,7 @@
   //   background-color: Red;
   min-width: 70%;
   width: 70%;
+
   .content-container {
     display: flex;
     background-color: white;
@@ -12,7 +13,8 @@
     border-radius: 10px;
     padding: 5px 15px;
     width: 90%;
-    min-width: 90%;
+    max-width: 90%;
+    min-height: 700px;
     // height: 80%;
     border: 1px solid rgb(196, 196, 196);
     flex-direction: column;

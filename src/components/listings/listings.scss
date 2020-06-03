@@ -1,14 +1,15 @@
 .listings-main {
   display: flex;
   flex-direction: row;
-  height: 100vh;
+  //   height: 100vh;
   background: linear-gradient(180deg, #f0f5f3 0, rgba(255, 255, 255, 0.5) 100%);
-  //   background-color: rgb(177, 102, 102)
+  //   background-color: rgb(177, 102, 102);
   overflow-y: scroll;
 
   .card-container {
     display: flex;
-    margin-left: 50px;
+    align-items: center;
+    // margin-left: 50px;
     width: 70%;
     flex-direction: column;
     // background-color: rgb(124, 228, 124);
@@ -75,6 +76,7 @@
   }
   .modal-container {
     display: flex;
+    width: 100%;
     // background-color: rgb(157, 177, 157);
   }
 }

@@ -4,10 +4,20 @@ import "./listings.scss";
 import Location from "../images/locationimg.png";
 import { FaRegBuilding } from "react-icons/fa";
 import JobModal from "../modal/jobModal";
+import { MdClose } from "react-icons/md";
+import { BrowserRouter as Router, Link, useHistory } from "react-router-dom";
 
-export default function Listings({ getJobs, setJobs, jobs }) {
+export default function Listings({
+  getJobs,
+  setJobs,
+  jobs,
+  setContent,
+  content,
+  setJobApps,
+}) {
   const [modal, setModal] = useState(false);
-  const [content, setContent] = useState([]);
+  const [clicked, setClicked] = useState(false);
+  const history = useHistory();
 
   useEffect(() => {
     return () => {
@@ -45,7 +55,13 @@ export default function Listings({ getJobs, setJobs, jobs }) {
         ))}
       </div>
       <div className="modal-container">
-        {modal && <JobModal setModal={setModal} content={content} />}
+        {modal && (
+          <JobModal
+            setJobApps={setJobApps}
+            setModal={setModal}
+            content={content}
+          />
+        )}
       </div>
     </div>
   );
