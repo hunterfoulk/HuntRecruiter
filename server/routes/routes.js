@@ -5,6 +5,8 @@ const nodemailer = require("nodemailer");
 const Busboy = require("busboy");
 const multer = require("multer");
 const upload = multer({ dest: "uploads/" });
+var file = require("file-system");
+var fs = require("fs");
 
 require("dotenv").config();
 
@@ -72,13 +74,8 @@ router.route("/email").post(upload.single("resume"), async (req, res, next) => {
     const { email } = req.body;
     const { phone } = req.body;
     const resume = req.file;
-
-    if (!resume) {
-      const error = new Error("Please upload a file");
-      error.httpStatusCode = 400;
-      return next(error);
-    }
-    res.send(resume);
+    console.log("server full name", fullname);
+    console.log("server resume", resume);
 
     let mailOptions = {
       to: process.env.TO_EMAIL,
@@ -87,9 +84,8 @@ router.route("/email").post(upload.single("resume"), async (req, res, next) => {
       text: "test test test",
       attachments: [
         {
-          path: "C:/Users/hunte/Desktop/testresume.pdf",
           contentType: "application/pdf",
-          content: data,
+          path: req.file.path,
         },
       ],
 

@@ -19,11 +19,6 @@ function App() {
   const [content, setContent] = useState([]);
   const [jobApps, setJobApps] = useState([]);
 
-  const [blank, setBlank]=useState({
-    content=[],
-    filteredContent=[],
-    selectedJob={}
-  });
 
   const getJobs = async () => {
 

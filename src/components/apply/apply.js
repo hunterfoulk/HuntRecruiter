@@ -53,21 +53,21 @@ export default function Apply({ jobApps }) {
         <div className="form-header">
           <p>Submit your application</p>
         </div>
-        <form enctype="multipart/form-data" onSubmit={(e) => sendEmail(e)}>
+        <form onSubmit={(e) => sendEmail(e)}>
           <span>Resume/CV</span>
           <label className="custom-file-upload">
             <AiOutlinePaperClip className="paperclip" />
             Attach Resume/CVC
             <input
               onChange={(e) => {
-                setResume(e.target.file);
+                setResume(e.target.files[0]);
                 console.log(e.target.value);
               }}
               className="resume"
               name="resume"
               type="file"
-              placeholder=""
-              accept="application/pdf,application/vnd.ms-excel"
+              encType="multipart/form-data"
+              accept="application/pdf"
             />
           </label>
           <span>Full Name</span>
