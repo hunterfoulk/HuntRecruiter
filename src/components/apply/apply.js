@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import "./apply.scss";
 import { AiOutlinePaperClip } from "react-icons/ai";
 import axios from "axios";
+import { MdClose } from "react-icons/md";
 
 export default function Apply({ jobApps }) {
   const [fullname, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [resume, setResume] = useState(null);
   const [phone, setPhone] = useState("");
+  const [modal, setModal] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -41,10 +43,28 @@ export default function Apply({ jobApps }) {
     for (var key of formData.entries()) {
       console.log(key[0] + "data, " + key[1]);
     }
+    setEmail("");
+    setFullName("");
+    setPhone("");
+    setResume(null);
+    setModal(true);
   };
 
   return (
     <div className="apply-main">
+      {modal && (
+        <div className="backdrop">
+          <div className="apply-modal">
+            <div className="modal-header">
+              <MdClose
+                onClick={() => setModal(false)}
+                className="modal-close"
+              />
+            </div>
+            <h1>Your application has been sent.</h1>
+          </div>
+        </div>
+      )}
       <div className="header">
         <p className="title">{jobApps.title}</p>
         <p className="company">{jobApps.company}</p>

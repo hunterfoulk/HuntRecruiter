@@ -57,16 +57,6 @@ router.route("/jobs").post(async (req, res) => {
     console.error(error.message);
   }
 });
-// var busboy = new Busboy({ headers: req.headers });
-// const file = req.file.resume;
-// console.log("resume body", file);
-
-// busboy.on("finish", function () {
-//   console.log("Upload finished");
-
-//   console.log("resume", file);
-// });
-// req.pipe(busboy);
 
 router.route("/email").post(upload.single("resume"), async (req, res, next) => {
   try {
@@ -74,6 +64,7 @@ router.route("/email").post(upload.single("resume"), async (req, res, next) => {
     const { email } = req.body;
     const { phone } = req.body;
     const resume = req.file;
+
     console.log("server full name", fullname);
     console.log("server resume", resume);
 
@@ -84,6 +75,7 @@ router.route("/email").post(upload.single("resume"), async (req, res, next) => {
       text: "test test test",
       attachments: [
         {
+          filename: "resume.pdf",
           contentType: "application/pdf",
           path: req.file.path,
         },
