@@ -11,11 +11,11 @@
     background-color: white;
     margin-top: 10px;
     border-radius: 10px;
-    padding: 5px 15px;
+    padding: 5px 0px 5px 10px;
     width: 90%;
     max-width: 90%;
     min-height: 700px;
-    // height: 80%;
+    height: auto;
     border: 1px solid rgb(196, 196, 196);
     flex-direction: column;
     // background-color: rgb(206, 130, 130);
@@ -64,6 +64,10 @@
       }
     }
     .description {
+      display: flex;
+      height: auto;
+      // background-color: green;
+      overflow-y: auto;
       p {
         -webkit-order: 1;
         text-overflow: ellipsis;

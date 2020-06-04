@@ -19,9 +19,7 @@ function App() {
   const [content, setContent] = useState([]);
   const [jobApps, setJobApps] = useState([]);
 
-
   const getJobs = async () => {
-
     try {
       const response = await fetch("http://localhost:5000/recruiter/jobs");
       const jsonData = await response.json();
@@ -29,7 +27,6 @@ function App() {
       setJobs(jsonData);
 
       console.log("jobs", jsonData);
-
     } catch (error) {
       console.error(error.message);
     }
@@ -65,7 +62,7 @@ function App() {
     switch (type) {
       case "healthcare":
         setJobs((prevJobs) =>
-          prevJobs.filter((item) => item.title.indexOf("types"))
+          prevJobs.filter((item) => item.title.includes("Nurse"))
         );
 
         break;
